@@ -1,0 +1,107 @@
+<div class="container">
+  <h2>Update Bug</h2>
+  <div>
+    <div class="sections">
+      <form [formGroup]="bugForm" (ngSubmit)="updateBug()">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Bug Title</mat-label>
+          <input matInput placeholder="Enter Title" formControlName="title" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <input matInput placeholder="Enter Detailed Description" formControlName="description" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+          <mat-label>Priority</mat-label>
+          <mat-select formControlName="priority" required>
+            <mat-option value="Low">Low</mat-option>
+            <mat-option value="Medium">Medium</mat-option>
+            <mat-option value="High">High</mat-option>
+            <mat-option value="Critical">Critical</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" required>
+            <mat-option value="Open">Open</mat-option>
+            <mat-option value="In Progress">In Progress</mat-option>
+            <mat-option value="Resolved">Resolved</mat-option>
+            <mat-option value="Verified">Verified</mat-option>
+            <mat-option value="Closed">Closed</mat-option>
+            <mat-option value="NotResolved">NotResolved</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+          <mat-label>Created Date</mat-label>
+          <input matInput [matDatepicker]="createdPicker" formControlName="created" required>
+          <mat-datepicker-toggle matSuffix [for]="createdPicker"></mat-datepicker-toggle>
+          <mat-datepicker #createdPicker></mat-datepicker>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+          <mat-label>Updated Date</mat-label>
+          <input matInput [matDatepicker]="updatedPicker" formControlName="updated" required>
+          <mat-datepicker-toggle matSuffix [for]="updatedPicker"></mat-datepicker-toggle>
+          <mat-datepicker #updatedPicker></mat-datepicker>
+        </mat-form-field>
+<!--     
+        <mat-form-field appearance="outline">
+          <mat-label>Reported By</mat-label>
+          <mat-select formControlName="reported_by_user_id.userid" required>
+            <mat-option *ngFor="let user of managerName" [value]="user.id">{{ user.username }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+          <mat-label>Assigned To</mat-label>
+          <mat-select formControlName="user.userid" required>
+            <mat-option *ngFor="let user of usersList" [value]="user.id">{{ user.username }}</mat-option>
+          </mat-select>
+        </mat-form-field> -->
+    
+        <!-- <mat-form-field appearance="outline">
+          <mat-label>Project ID</mat-label>
+          <mat-select formControlName="project.id" required>
+            <mat-option [value]="project.id"></mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Project ID</mat-label>
+          <div formGroupName="project">
+            <input matInput placeholder="Enter Project Id" formControlName="id" required>
+          </div>
+          
+        </mat-form-field>
+        <!-- <div formGroupName="project">
+          <mat-form-field appearance="outline">
+            <mat-label>Project ID</mat-label>
+            <input matInput formControlName="id" readonly>
+          </mat-form-field>
+        </div> -->
+                
+        
+    
+        <div class="action-buttons">
+          <button type="submit" mat-flat-button>Update Bug</button>
+        </div>
+    
+      </form>
+    </div>
+    <div class="sections">
+      <h3>AI Suggests:</h3>
+      <ul *ngIf="aisuggestion && aisuggestion.length > 0">
+        <li>{{ aisuggestion }}</li>
+      </ul>
+      <span *ngIf="!aisuggestion || aisuggestion.length === 0">
+        <pre><code class="ai-suggestion">No suggestions yet.</code></pre>
+      </span>
+    </div>      
+  </div>
+  
+</div>

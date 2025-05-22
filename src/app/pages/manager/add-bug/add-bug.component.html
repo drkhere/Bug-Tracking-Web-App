@@ -1,0 +1,144 @@
+<div class="container">
+  <h2>Bug Registration</h2>
+  <div>
+    <div class="sections">
+      <!-- <h2>Bug Registration</h2> -->
+      <form [formGroup]="bugForm" (ngSubmit)="submitBug()">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Bug Title</mat-label>
+          <input matInput placeholder="Enter Title" formControlName="title" name="title" required>
+          <small *ngIf="submitted && bugForm.get('title')?.errors?.['required']">Title is required.</small>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <input matInput placeholder="Enter Detailed Description" formControlName="description" name="description" required>
+          <small *ngIf="submitted && bugForm.get('description')?.errors?.['required']">Description is required.</small>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Priority</mat-label>
+          <mat-select formControlName="priority" name="priority" required>
+            <mat-option value="Low">Low</mat-option>
+            <mat-option value="Medium">Medium</mat-option>
+            <mat-option value="High">High</mat-option>
+            <mat-option value="Critical">Critical</mat-option>
+          </mat-select>
+          <small *ngIf="submitted && bugForm.get('priority')?.errors?.['required']">Priority is required.</small>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" name="status" required>
+            <mat-option value="Open">Open</mat-option>
+            <mat-option value="In Progress">In Progress</mat-option>
+            <mat-option value="Resolved">Resolved</mat-option>
+            <mat-option value="Closed">Verified</mat-option>
+            <mat-option value="Closed">Closed</mat-option>
+            <mat-option value="Closed">NotResolved</mat-option>
+
+          </mat-select>
+          <small *ngIf="submitted && bugForm.get('status')?.errors?.['required']">Status is required.</small>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Created Date</mat-label>
+          <input matInput [matDatepicker]="createdPicker" formControlName="created" name="created" required>
+          <small *ngIf="submitted && bugForm.get('created')?.errors?.['required']">Created Date is required.</small>
+          <mat-datepicker-toggle matSuffix [for]="createdPicker"></mat-datepicker-toggle>
+          <mat-datepicker #createdPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Updated Date</mat-label>
+          <input matInput [matDatepicker]="updatedPicker" formControlName="updated" name="updated" required>
+          <small *ngIf="submitted && bugForm.get('updated')?.errors?.['required']">Updated Date is required.</small>
+
+          <mat-datepicker-toggle matSuffix [for]="updatedPicker"></mat-datepicker-toggle>
+          <mat-datepicker #updatedPicker></mat-datepicker>
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="outline">
+              <mat-label>Reported By (User ID)</mat-label>
+              <input matInput type="number" placeholder="Enter User ID" [(ngModel)]="bug.reported_by_user_id.userid" name="reported_by_user_id" required>
+            </mat-form-field> -->
+        <mat-form-field appearance="outline">
+          <mat-label>Reported By </mat-label>
+          <div formGroupName="reported_by_user_id">
+            <mat-select formControlName="userid" name="userid" required>
+              <mat-option *ngFor="let user of managerName" [value]="user.id">
+                {{ user.username }}
+              </mat-option>
+            </mat-select>
+            <small *ngIf="submitted && bugForm.get('reported_by_user_id.userid')?.errors?.['required']">Reported Userid is required.</small>
+
+          </div>
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="outline">
+              <mat-label>Assigned To (User ID)</mat-label>
+              <input matInput type="number" placeholder="Enter User ID" [(ngModel)]="bug.user.userid" name="assigned_to_user_id" required>
+            </mat-form-field> -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Assigned To </mat-label>
+          <div formGroupName="user">
+            <mat-select  formControlName="userid" name="userid" required>
+              <mat-option *ngFor="let user of usersList" [value]="user.id">
+                {{ user.username }}
+              </mat-option>
+            </mat-select>
+            <small *ngIf="submitted && bugForm.get('user.userid')?.errors?.['required']">Assigned Userid is required.</small>
+
+          </div>
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="outline">
+              <mat-label>Project ID</mat-label>
+              <input matInput type="number" placeholder="Enter Project ID" [(ngModel)]="bug.project.id" name="project_id" required>
+            </mat-form-field> -->
+        <mat-form-field appearance="outline">
+          <mat-label>Project ID</mat-label>
+          <div formGroupName="project">
+            <mat-select formControlName="id" name="project_id" required>
+              <mat-option *ngFor="let project of projectName" [value]="project.id">
+                {{ project.projectname }}
+              </mat-option>
+            </mat-select>
+            <small *ngIf="submitted && bugForm.get('project.id')?.errors?.['required']">ProjectName is required.</small>
+
+          </div>
+        </mat-form-field>
+
+        <div class="action-buttons">
+          <div class="example-button-container">
+            <button type="submit" mat-flat-button extended>
+              Add Bug
+            </button>
+          </div>
+          <div class="example-button-container">
+            <button mat-flat-button extended type="button" (click)="onGenerate()">
+              Generate Suggestion
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="sections">
+      <h3>AI Suggests:</h3>
+      <ul *ngIf="aisugggestion.length > 0">
+        <li *ngFor="let suggestion of aisugggestion">
+          {{ suggestion }}
+        </li>
+      </ul>
+      <span *ngIf="aisugggestion.length === 0">
+        <pre><code class="ai-suggestion">No suggestions yet.</code></pre>
+      </span>
+    </div>    
+  </div>
+</div>

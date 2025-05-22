@@ -1,0 +1,71 @@
+<div class="container">
+    <h2>Team-members of {{projectName}}</h2>
+    <div>
+    <div class="example-button-container">
+        <a mat-fab extended color="primary" href="project/{{projectid}}/addmember">
+          <mat-icon>folder</mat-icon>
+          Add Member
+        </a>
+      </div>
+    <table mat-table [dataSource]="teamMembers" class="mat-elevation-z8">
+  
+      <!-- Team ID -->
+      <ng-container matColumnDef="teamid">
+        <th mat-header-cell *matHeaderCellDef> Team ID </th>
+        <td mat-cell *matCellDef="let member">{{ member.teamid }}</td>
+      </ng-container>
+  
+      <!-- Project ID -->
+      <ng-container matColumnDef="projectid">
+        <th mat-header-cell *matHeaderCellDef> Project ID </th>
+        <td mat-cell *matCellDef="let member">{{ member.projectid }}</td>
+      </ng-container>
+  
+      <!-- User ID -->
+      <ng-container matColumnDef="userid">
+        <th mat-header-cell *matHeaderCellDef> User ID </th>
+        <td mat-cell *matCellDef="let member">{{ member.userid }}</td>
+      </ng-container>
+  
+      <!-- Username -->
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let member">{{ member.username }}</td>
+      </ng-container>
+  
+      <!-- User Role -->
+      <ng-container matColumnDef="userrole">
+        <th mat-header-cell *matHeaderCellDef> User Role </th>
+        <td mat-cell *matCellDef="let member">{{ member.userrole }}</td>
+      </ng-container>
+  
+      <!-- Bugs Assigned -->
+      <ng-container matColumnDef="bugs_assigned">
+        <th mat-header-cell *matHeaderCellDef> Bugs Assigned </th>
+        <td mat-cell *matCellDef="let member">{{ member.bugs_assigned }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let member">
+          <!-- <div class="example-button-container">
+            <button mat-fab extended (click)="updateBug(bug)">
+              <mat-icon>update</mat-icon>
+              Update
+            </button>
+          </div> -->
+          <div class="example-button-container">
+            <button mat-fab extended (click)="deleteMember(member.teamid)">
+              <mat-icon>delete</mat-icon>
+              Delete
+            </button>
+          </div>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    </div>
+  </div>
+  

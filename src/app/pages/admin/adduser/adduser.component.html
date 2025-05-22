@@ -1,0 +1,62 @@
+<div class="container">
+  <h2>Employee Registration</h2>
+  <form [formGroup]="userForm" (ngSubmit)="submitUser()">
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Username</mat-label>
+      <input matInput placeholder="Enter Data" formControlName="username">
+      <small *ngIf="submitted && userForm.get('username')?.errors?.['required']">Username is required.</small>
+      <small *ngIf="submitted && userForm.get('username')?.errors?.['minlength']">Minimum 3 characters required.</small>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Password</mat-label>
+      <input matInput type="password" placeholder="Enter Data" formControlName="password">
+      <small *ngIf="submitted && userForm.get('password')?.errors?.['required']">Password is required.</small>
+      <small *ngIf="submitted && userForm.get('password')?.errors?.['minlength']">Minimum 6 characters required.</small>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter First Name</mat-label>
+      <input matInput placeholder="Enter Data" formControlName="first_name">
+      <small *ngIf="submitted && userForm.get('first_name')?.errors?.['required']">First name is required.</small>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Last Name</mat-label>
+      <input matInput placeholder="Enter Data" formControlName="last_name">
+      <small *ngIf="submitted && userForm.get('last_name')?.errors?.['required']">Last name is required.</small>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Email</mat-label>
+      <input matInput type="email" placeholder="Enter Data" formControlName="email">
+      <small *ngIf="submitted && userForm.get('email')?.errors?.['required']">Email is required.</small>
+      <small *ngIf="submitted && userForm.get('email')?.errors?.['invalidEmail']">  Invalid email format (e.g., example&#64;gmail.com).
+      </small>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option value="ADMIN">ADMIN</mat-option>
+        <mat-option value="MANAGER">MANAGER</mat-option>
+        <mat-option value="DEVELOPER">DEVELOPER</mat-option>
+        <mat-option value="TESTER">TESTER</mat-option>
+      </mat-select>
+      <small *ngIf="submitted && userForm.get('role')?.errors?.['required']">Role is required.</small>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="ACTIVE">ACTIVE</mat-option>
+        <mat-option value="INACTIVE">INACTIVE</mat-option>
+      </mat-select>
+      <small *ngIf="submitted && userForm.get('status')?.errors?.['required']">Status is required.</small>
+    </mat-form-field>
+
+    <div class="example-button-container">
+      <button type="submit" mat-flat-button >Add</button>
+    </div>
+  </form>
+</div>

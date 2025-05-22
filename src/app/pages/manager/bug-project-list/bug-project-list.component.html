@@ -1,0 +1,68 @@
+<div class="container">
+  <h2>Bugs Associated With Particular Projects</h2>
+  <div>
+    <!-- <div class="example-button-container">
+      <a mat-fab extended color="primary" href="/addbug">
+        <mat-icon>folder</mat-icon>
+        Add Bugs
+      </a>
+    </div> -->
+
+    <table mat-table [dataSource]="projects" class="mat-elevation-z8 demo-table">
+      <!-- Project ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let project">{{ project.id }}</td>
+      </ng-container>
+
+      <!-- Project Name Column -->
+      <ng-container matColumnDef="project_name">
+        <th mat-header-cell *matHeaderCellDef>Project Name</th>
+        <td mat-cell *matCellDef="let project">{{ project.project_name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Project Status</th>
+        <td mat-cell *matCellDef="let project">{{ project.status }}</td>
+      </ng-container>
+
+      <!-- Manager ID Column -->
+      <ng-container matColumnDef="manager">
+        <th mat-header-cell *matHeaderCellDef>Manager</th>
+        <td mat-cell *matCellDef="let project">{{ project.user.username }}</td>
+      </ng-container>
+
+      <!-- Bug Count Column -->
+      <ng-container matColumnDef="total_bugs">
+        <th mat-header-cell *matHeaderCellDef>Total Bugs</th>
+        <td mat-cell *matCellDef="let project">{{ project.bugcount }}</td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let project">
+          <div class="example-button-container">
+            <button mat-fab extended>
+              <mat-icon>update</mat-icon>
+              Update
+            </button>
+          </div>
+          <div class="example-button-container">
+            <button mat-fab extended>
+              <mat-icon>delete</mat-icon>
+              Delete
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Table Headers -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+      <!-- Table Data Rows -->
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="bugPage(row.user.userid,row.id,row.project_name)"></tr>
+
+    </table>
+  </div>
+</div>
