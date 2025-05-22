@@ -1,0 +1,77 @@
+<div class="container">
+    <h2>Project Updation</h2>
+    <form  (ngSubmit)="updateProject()">
+        <mat-form-field appearance="outline">
+          <mat-label>Enter ProjectName</mat-label>
+          <input matInput placeholder="Enter Data" [(ngModel)]="project.project_name" name="project_name" required>
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Enter Description</mat-label>
+          <input matInput placeholder="Enter Data" [(ngModel)]="project.description" name="description" required>
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="outline">
+          <mat-label>Enter Manager</mat-label>
+          <input matInput type="number" placeholder="Enter Data" [(ngModel)]="project.assigned_project_manager_id.userid" name="assigned_project_manager_id" required>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Select Project Manager</mat-label>
+          <mat-select [(ngModel)]="project.user.userid" name="assigned_project_manager_id" required>
+            <mat-option *ngFor="let manager of assignedProjectManagers" [value]="manager.id">
+              {{ manager.username }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+
+
+        <!-- <mat-form-field appearance="outline">
+          <mat-label>Enter StartDate</mat-label>
+          <input matInput type="date" placeholder="Enter Data" [(ngModel)]="project.start_date" name="start_date" required>
+           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Start Date</mat-label>
+          <input matInput [matDatepicker]="start_datepicker" [(ngModel)]="project.start_date" name="start_date" required>
+          <mat-datepicker-toggle matSuffix [for]="start_datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #start_datepicker></mat-datepicker>
+        </mat-form-field>
+
+  
+        <!-- <mat-form-field appearance="outline">
+          <mat-label>Enter EndDate</mat-label>
+          <input matInput type="date" placeholder="Enter Data" [(ngModel)]="project.end_date" name="end_date" required>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>End Date</mat-label>
+          <input matInput [matDatepicker]="end_datepicker" [(ngModel)]="project.end_date" name="end_date" required>
+          <mat-datepicker-toggle matSuffix [for]="end_datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #end_datepicker></mat-datepicker>
+        </mat-form-field>
+   
+        <mat-form-field appearance="outline">
+          <!-- <mat-label>Enter Status</mat-label>
+          <input matInput placeholder="Enter Data" [(ngModel)]="user.status" name="status" required> -->
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+          <mat-label>Status</mat-label>
+          <mat-select matNativeControl [(ngModel)]="project.status" name="status" required>
+            <mat-option value="ACTIVE" >ACTIVE</mat-option>
+            <mat-option value="Closed" >CLOSED</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <div class="example-button-container">
+          <button type="submit" mat-flat-button extended >
+            Update
+          </button>
+        </div>
+    </form>
+  </div>

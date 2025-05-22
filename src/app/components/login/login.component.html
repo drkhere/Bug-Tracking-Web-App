@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Login Here</h2>
+    <form (ngSubmit)="loginHere()">
+        <mat-form-field>
+            <mat-label>Enter UserName</mat-label>
+            <input matInput [(ngModel)]="username" name="username">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Enter Password</mat-label>
+            <input matInput [type]="hide() ? 'password' : 'text'" [(ngModel)]="password" name="passowrd"/>
+
+            <!-- <input matInput [type]="hide() ? 'password' : 'text'" [(ngModel)]="password" name="passowrd"/>
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="clickEvent($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide()"
+            >
+              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button> -->
+          </mat-form-field>
+          <section>
+            <div class="example-button-row">
+              <button mat-flat-button>Login</button>
+            </div>
+          </section>
+    </form>
+</div>

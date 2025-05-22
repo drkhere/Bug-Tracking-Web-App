@@ -1,0 +1,8 @@
+.custom-toolbar {
+    background-color: #1E3A8A; /* Dark Blue for Formal Look */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+}
+

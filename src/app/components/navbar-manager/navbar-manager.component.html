@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="custom-toolbar">
+    <span class="app-title">ProjectHealth Manager</span>
+    <span class="spacer"></span>
+
+    <button mat-button class="menu-button"><a mat-fab extended [routerLink]="'/manager/home'">Home</a></button>
+
+    <button mat-button class="menu-button"><a mat-fab extended [routerLink]="'/bugs/user/'+ userid">Bugs</a></button>
+
+    <button mat-button class="menu-button"><a mat-fab extended [routerLink]="'/teams/user/'+ userid">Teams</a></button>
+
+    <button mat-button  class="menu-button"><a mat-fab extended [routerLink]="'manager/reports'">Reports</a></button>
+
+    <button mat-button  class="menu-button"><a mat-fab extended [routerLink]="'/chatbot'">AI Assist</a></button>
+
+    <button mat-button  class="menu-button"><a mat-fab extended [routerLink]="'/profile/user/'+userid">Profile</a></button>
+
+    <button mat-button  class="menu-button" style="background-color:red"><a mat-fab extended (click)="logout()" >Logout</a></button>
+
+
+    
+</mat-toolbar>

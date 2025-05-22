@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="custom-toolbar">
+    <span class="app-title">ProjectHealth Tester</span>
+    <span class="spacer"></span>
+
+    <button mat-button class="menu-button"><a mat-fab extended [routerLink]="'/tester/home'">Home</a></button>
+
+    <!-- bugs/tester/user/:userid/project/:projectid -->
+    <button mat-button class="menu-button"><a mat-fab extended [routerLink]="'/bugs/tester/user/'+userid">Bugs</a></button>
+
+    <button mat-button  class="menu-button"><a mat-fab extended [routerLink]="'/tester/reports'">Reports</a></button>
+
+    <button mat-button  class="menu-button"><a mat-fab extended [routerLink]="'/chatbot'">AI Assist</a></button>
+
+    <button mat-button  class="menu-button"><a mat-fab extended [routerLink]="'/profile/user/'+userid">Profile</a></button>
+
+    <button mat-button  class="menu-button" style="background-color:red"><a mat-fab extended (click)="logout()" >Logout</a></button>
+
+
+    
+</mat-toolbar>

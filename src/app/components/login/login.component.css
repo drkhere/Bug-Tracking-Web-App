@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    height: 40%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.container form{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+}
+
+form mat-form-field{
+    width: 100%;
+}
+
+.container form button{
+    border-radius: 4px;
+}

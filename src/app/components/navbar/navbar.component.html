@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="custom-toolbar">
+    <span class="app-title">ProjectHealth Admin</span>
+    <span class="spacer"></span>
+
+    <button mat-button class="menu-button"><a mat-fab extended [routerLink]="'/admin/dashboard'">Home</a></button>
+
+    <button mat-button class="menu-button"><a mat-fab extended [routerLink]="'/userlist'">Users</a></button>
+
+    <button mat-button class="menu-button"><a mat-fab extended [routerLink]="'/projectlist'">Projects</a></button>
+
+    <button mat-button  class="menu-button"><a mat-fab extended [routerLink]="'/reports'">Reports</a></button>
+
+    <button mat-button  class="menu-button"><a mat-fab extended [routerLink]="'/profile/user/'+userid">Profile</a></button>
+
+    <button mat-button  class="menu-button"><a mat-fab extended [routerLink]="'/chatbot'">AI Assist</a></button>
+
+    
+    <button mat-button  class="menu-button" style="background-color:red"><a mat-fab extended (click)="logout()" >Logout</a></button>
+
+    
+</mat-toolbar>

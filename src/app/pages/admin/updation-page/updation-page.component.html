@@ -1,0 +1,62 @@
+<div class="container">
+    <h2>Employee Updation</h2>
+    <form  (ngSubmit)="updateUser()">
+        <mat-form-field appearance="outline">
+          <mat-label>Enter UserName</mat-label>
+          <input matInput placeholder="Enter Data" [(ngModel)]="user.username" name="username" required>
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Enter Password</mat-label>
+          <input matInput placeholder="Enter Data" [(ngModel)]="user.password" name="password" required>
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter FirstName</mat-label>
+          <input matInput placeholder="Enter Data" [(ngModel)]="user.first_name" name="first_name" required>
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter LastName</mat-label>
+          <input matInput placeholder="Enter Data" [(ngModel)]="user.last_name" name="last_name" required>
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Enter Email</mat-label>
+          <input matInput type="email" placeholder="Enter Data" [(ngModel)]="user.email" name="email" required>
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        </mat-form-field>
+   
+        <mat-form-field appearance="outline">
+          <!-- <mat-label>Enter Role</mat-label>
+          <input matInput placeholder="Enter Data" [(ngModel)]="user.role" name="role" required> -->
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <mat-label>Role</mat-label>
+            <mat-select matNativeControl [(ngModel)]="user.role" name="role" required>
+              <mat-option value="ADMIN">ADMIN</mat-option>
+              <mat-option value="MANAGER" >MANAGER</mat-option>
+              <mat-option value="DEVELOPER" >DEVELOPER</mat-option>
+              <mat-option value="TESTER" >TESTER</mat-option>
+            </mat-select>
+        </mat-form-field>
+   
+        <mat-form-field appearance="outline">
+          <!-- <mat-label>Enter Status</mat-label>
+          <input matInput placeholder="Enter Data" [(ngModel)]="user.status" name="status" required> -->
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+          <mat-label>Status</mat-label>
+          <mat-select matNativeControl [(ngModel)]="user.status" name="status" required>
+            <mat-option value="ACTIVE" >ACTIVE</mat-option>
+            <mat-option value="INACTIVE" >INACTIVE</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <div class="example-button-container">
+          <button type="submit" mat-flat-button extended >
+            Update
+          </button>
+        </div>
+    </form>
+  </div>

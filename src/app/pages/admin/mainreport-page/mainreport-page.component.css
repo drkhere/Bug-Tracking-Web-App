@@ -1,0 +1,92 @@
+.container {
+    /* height: 590px; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+}
+
+.cards {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 50%;
+
+}
+
+.mat-mdc-card-header {
+    /* display: flex;
+    flex-direction: column; */
+    height: 100%;
+    width: 85%;
+    /* padding: 5px; */
+}
+
+
+
+div.mat-mdc-card-header-text {
+    width: 100%;
+}
+
+.cards mat-card {
+    border: none;
+    width: 100%;
+    margin: 4px;
+    display: flex
+;
+    align-items: center;
+    background: none;
+}
+
+.cards mat-card form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 4px;
+}
+
+
+.cards mat-card mat-header {
+    width: 100%;
+    height: 100%;
+    margin: 4px;
+}
+
+.cards mat-card mat-card-subtitle {
+    display: flex;
+    justify-content: center;
+    /* position: relative; */
+    align-items: center;
+    width: 340px;
+    height: 65%;
+    font-size: large;
+    /* margin: 4px;*/
+}
+
+.others {
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+    padding: 4px;
+    width: 75%;
+}
+
+.others table {
+    margin-top: 30px;
+}
+
+
+.others mat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px;
+    padding: 4px;
+}
+
+.others .mat-mdc-card-header {
+    display: flex;
+    flex-direction: column;
+}

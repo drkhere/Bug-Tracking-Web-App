@@ -1,0 +1,12 @@
+<div class="app" [ngClass]="{ 'full-height': isUserLoggedIn }">
+    <app-navbar *ngIf="userRole === 'ADMIN'"></app-navbar>
+    <app-navbar-manager *ngIf="userRole === 'MANAGER'"></app-navbar-manager>
+    <app-navbar-developer *ngIf="userRole === 'DEVELOPER'"></app-navbar-developer>
+    <app-navbar-tester *ngIf="userRole === 'TESTER'"></app-navbar-tester>
+
+  
+    <router-outlet></router-outlet>
+    
+    <app-footer *ngIf="isUserLoggedIn"></app-footer>
+</div>
+  
